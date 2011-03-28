@@ -12,6 +12,7 @@ var showBarcodeResult = function(event){
     case Ti.Barcode.EMAIL: contentType = 'EMAIL'; break;
     case Ti.Barcode.CONTACT: contentType = 'CONTACT'; break;
     case Ti.Barcode.BOOKMARK: contentType = 'BOOKMARK'; break;
+    default: contentType = 'UNKNOWN';
   };
 	
 	var a = Ti.UI.createAlertDialog({title: contentType, message: event.result});
