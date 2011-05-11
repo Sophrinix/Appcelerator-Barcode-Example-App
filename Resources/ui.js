@@ -23,13 +23,15 @@ var showBarcodeResult = function(event){
 var openBarcodeScanner = function(){
   Ti.Barcode.capture({
 		success: function(event){ showBarcodeResult(event); },
-		cancel: function(event){ alert("cancel"); },
+		cancel: function(event){ alert("cancelled. Restart App now to re-open scanner"); },
 		error: function(event){ alert("Error. "+event.message); }
 	});  
 };
 
 exports.createScanWindow = function(){
-  var w = Titanium.UI.createWindow({ title:'Awesome Empty Background Window', backgroundColor:'#fff'});
+  var w = Titanium.UI.createWindow({
+    title:'Awesome Empty Background Window', backgroundColor:'#fff',
+  });
   openBarcodeScanner();
   return w;
 };
